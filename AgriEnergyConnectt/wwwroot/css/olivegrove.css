@@ -1,0 +1,118 @@
+﻿/* Olive Grove Color Palette */
+:root {
+    --background: #f5f5f0;
+    --foreground: #1e1e1e;
+    --primary: #556b2f; /* Olive green */
+    --primary-light: #789262;
+    --accent: #a3c586; /* Sage green */
+    --secondary: #8b7355; /* Earth brown */
+    --neutral: #e0e0d8;
+    --link: #4b6f44;
+    --success: #5c9746;
+    --danger: #c0392b;
+}
+
+/* Base Reset & Typography */
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+    a:hover {
+        color: var(--primary);
+        text-decoration: underline;
+    }
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+    .btn-primary:hover {
+        background-color: var(--primary-light);
+        border-color: var(--primary-light);
+    }
+
+.btn-success {
+    background-color: var(--success);
+    border-color: var(--success);
+    color: #fff;
+}
+
+    .btn-success:hover {
+        background-color: #4c7d39;
+        border-color: #4c7d39;
+    }
+
+/* Headers and Highlights */
+h1, h2, h3, h4, h5 {
+    color: var(--primary);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary);
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #fff !important;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: var(--accent) !important;
+    }
+
+/* Table */
+table {
+    background-color: #fff;
+}
+
+.table thead {
+    background-color: var(--accent);
+    color: #1e1e1e;
+}
+
+/* Forms */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    border: 1px solid var(--neutral);
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: #fff;
+    color: var(--foreground);
+}
+
+/* Alerts */
+.alert-success {
+    background-color: #e6f2e1;
+    color: var(--success);
+    border: 1px solid var(--success);
+}
+
+.alert-danger {
+    background-color: #fae3e3;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
