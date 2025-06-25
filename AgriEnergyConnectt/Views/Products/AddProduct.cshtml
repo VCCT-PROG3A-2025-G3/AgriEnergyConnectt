@@ -1,0 +1,58 @@
+﻿@model AgriEnergyConnectt.Models.ViewModels.ProductViewModel
+
+
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<h2>Add Product</h2>
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+<form asp-action="AddProduct" method="post">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="CategoryDropdown">Category</label>
+        <select asp-for="Category" class="form-control" id="CategoryDropdown" onchange="toggleCustomCategory(this)">
+            <option value="">-- Select a category --</option>
+            <option value="Grains">Grains</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Livestock">Livestock</option>
+            <option value="Other">Other</option>
+        </select>
+        <input type="text" id="CustomCategoryInput" class="form-control mt-2" placeholder="Enter custom category" style="display: none;" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProductionDate" class="control-label"></label>
+        <input asp-for="ProductionDate" class="form-control" type="date" />
+        <span asp-validation-for="ProductionDate" class="text-danger"></span>
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary mt-3">Save</button>
+</form>
+
+@section Scripts {
+    <script>
+        function toggleCustomCategory(select) {
+            var customInput = document.getElementById("CustomCategoryInput");
+            if (select.value === "Other") {
+                customInput.style.display = "block";
+                customInput.name = "Category";
+            } else {
+                customInput.style.display = "none";
+                customInput.name = "";
+            }
+        }
+    </script>
+}

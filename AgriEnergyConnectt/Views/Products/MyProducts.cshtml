@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AgriEnergyConnectt.Models.Product>
+
+@{
+    ViewData["Title"] = "My Products";
+}
+
+<h2>My Products</h2>
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success" id="successMessage">
+        @TempData["Success"]
+    </div>
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>    
+            <th>Production Date</th>
+            <th>Added On</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Category</td>
+                <td>@product.ProductionDate.ToString("yyyy-MM-dd")</td>
+                <td>@product.CreatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    setTimeout(function () {
+        var alert = document.getElementById("successMessage");
+        if (alert) {
+            alert.style.transition = "opacity 0.25s ease";
+            alert.style.opacity = 0;
+            setTimeout(() => alert.style.display = "none", 350);
+        }
+    }, 3500);
+</script>

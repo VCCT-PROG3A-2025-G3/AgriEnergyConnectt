@@ -1,0 +1,40 @@
+﻿@model AgriEnergyConnectt.Models.ViewModels.FarmerProfileViewModel
+
+@{
+    ViewData["Title"] = "Farmer Profile";
+}
+
+<h2>Farmer Profile</h2>
+
+<div>
+    <strong>Email:</strong> @Model.Farmer.Email <br />
+</div>
+
+<h3 class="mt-4">Products by @Model.Farmer.Email</h3>
+
+@if (Model.Products.Any())
+{
+    <table class="table table-sm table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>                
+                <th>Production Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Category</td>                    
+                    <td>@product.ProductionDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>This farmer hasn't added any products yet.</p>
+}

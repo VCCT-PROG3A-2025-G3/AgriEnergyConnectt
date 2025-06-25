@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+
+@{
+    ViewData["Title"] = "All Farmers";
+}
+
+<h2>All Farmers</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Email</th>            
+            <th>Email Confirmed</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var farmer in Model)
+        {
+            <tr>
+                <td>@farmer.Email</td>                 
+                <td>@farmer.EmailConfirmed</td>
+                <td>
+                    
+                    <a asp-action="FarmerProfile" asp-route-id="@farmer.Id" class="btn btn-sm btn-primary">View Profile</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
